@@ -13,7 +13,7 @@ import java.util.List;
 public class PersonController {
 
     @Autowired
-    PersonService personService;
+    private PersonService personService;
 
     @GetMapping("/{id}")
     public Person getPerson(@PathVariable(value = "id") Long id) {

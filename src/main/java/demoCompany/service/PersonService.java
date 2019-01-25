@@ -15,13 +15,17 @@ import java.util.List;
 public class PersonService {
 
     @Autowired
-    PersonRepository personRepository;
+    private PersonRepository personRepository;
     @Autowired
-    PositionService positionService;
+    private PositionService positionService;
+    @Autowired
+    private ProjectService projectService;
 
     public Person create(Person person) {
         Position position = positionService.getById(person.getPosition().getId());
         person.setPosition(position);
+        Project project = projectService.getById(person.getProject().getId());
+        person.setProject(project);
         return personRepository.save(person);
     }
 

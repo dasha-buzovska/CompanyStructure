@@ -1,13 +1,10 @@
 package demoCompany.entity;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "person")
-@EntityListeners(AuditingEntityListener.class)
 public class Person {
 
     @Id

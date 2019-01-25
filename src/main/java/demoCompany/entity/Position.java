@@ -1,12 +1,9 @@
 package demoCompany.entity;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "position")
-@EntityListeners(AuditingEntityListener.class)
 public class Position {
 
     @Id

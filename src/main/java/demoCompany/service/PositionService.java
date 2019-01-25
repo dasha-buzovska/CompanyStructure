@@ -13,9 +13,13 @@ import java.util.List;
 public class PositionService {
 
     @Autowired
-    PositionRepository positionRepository;
+    private PositionRepository positionRepository;
+    @Autowired
+    private DepartmentService departmentService;
 
     public Position create(Position position) {
+        Department department = departmentService.getById(position.getDepartment().getId());
+        position.setDepartment(department);
         return positionRepository.save(position);
     }
 
@@ -37,6 +41,8 @@ public class PositionService {
         oldPosition.setLevel(position.getLevel());
         oldPosition.setOrganizationalPosition(position.getOrganizationalPosition());
         oldPosition.setProgrammingLanguage(position.getProgrammingLanguage());
+        Department department = departmentService.getById(position.getDepartment().getId());
+        oldPosition.setDepartment(department);
         return positionRepository.saveAndFlush(oldPosition);
     }
 
