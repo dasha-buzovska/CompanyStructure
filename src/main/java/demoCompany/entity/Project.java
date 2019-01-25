@@ -1,6 +1,7 @@
 package demoCompany.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -13,6 +14,7 @@ public class Project {
     private long id;
 
     @Column(name = "name")
+    @NotBlank
     private String name;
 
     @Column(name = "start")

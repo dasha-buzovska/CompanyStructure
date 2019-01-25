@@ -32,7 +32,7 @@ public class ProjectController {
     }
 
     @PostMapping
-    public Project createProjects(@Valid @RequestBody Project project) {
+    public Project createProject(@Valid @RequestBody Project project) {
         return projectService.create(project);
     }
 

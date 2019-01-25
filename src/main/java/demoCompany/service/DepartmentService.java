@@ -43,7 +43,7 @@ public class DepartmentService {
 
     public void delete(Long id) {
         if (!getAllPositions(id).isEmpty()) {
-            throw new RuntimeException("Can't delete department with projects. Please delete its positions firstly!");
+            throw new RuntimeException("Can't delete department with positions. Please delete its positions firstly!");
         }
         departmentRepo.deleteById(id);
     }

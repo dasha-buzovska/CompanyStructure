@@ -1,6 +1,7 @@
 package demoCompany.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "position")
@@ -12,9 +13,11 @@ public class Position {
     private Long id;
 
     @Column(name = "prog_lang")
+    @NotBlank
     private String programmingLanguage;
 
     @Column(name = "org_pos")
+    @NotBlank
     private String organizationalPosition;
 
     @Column(name = "level")
