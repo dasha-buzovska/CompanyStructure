@@ -2,7 +2,7 @@ package demoCompany.service;
 
 import demoCompany.ResourceNotFoundException;
 import demoCompany.entity.Department;
-import demoCompany.entity.Project;
+import demoCompany.entity.Position;
 import demoCompany.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepo;
     @Autowired
-    private ProjectService projectService;
+    private PositionService positionService;
 
     public Department create(Department department) {
         return departmentRepo.save(department);
@@ -30,9 +30,9 @@ public class DepartmentService {
         return departmentRepo.findAll();
     }
 
-    public List<Project> getAllProjects(Long id) {
+    public List<Position> getAllPositions(Long id) {
         Department department = getById(id);
-        return projectService.getAllByDepartment(department);
+        return positionService.getAllByDepartment(department);
     }
 
     public Department update(Long id, Department newDepartment) {
@@ -42,8 +42,8 @@ public class DepartmentService {
     }
 
     public void delete(Long id) {
-        if (!getAllProjects(id).isEmpty()) {
-            throw new RuntimeException("Can't delete department with projects. Please delete its projects first");
+        if (!getAllPositions(id).isEmpty()) {
+            throw new RuntimeException("Can't delete department with projects. Please delete its positions firstly!");
         }
         departmentRepo.deleteById(id);
     }

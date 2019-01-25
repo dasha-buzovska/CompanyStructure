@@ -21,10 +21,6 @@ public class Project {
     @Column(name = "end")
     private LocalDate end;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
-
     public long getId() {
         return id;
     }
@@ -57,11 +53,4 @@ public class Project {
         this.end = end;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 }

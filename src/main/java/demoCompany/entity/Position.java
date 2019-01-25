@@ -23,6 +23,10 @@ public class Position {
     @Column(name = "level")
     private String level;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     public Long getId() {
         return id;
     }
@@ -53,5 +57,13 @@ public class Position {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

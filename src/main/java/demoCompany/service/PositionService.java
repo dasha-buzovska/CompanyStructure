@@ -1,6 +1,7 @@
 package demoCompany.service;
 
 import demoCompany.ResourceNotFoundException;
+import demoCompany.entity.Department;
 import demoCompany.entity.Position;
 import demoCompany.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class PositionService {
 
     public List<Position> getAll() {
         return positionRepository.findAll();
+    }
+
+    public List<Position> getAllByDepartment(Department department) {
+        return positionRepository.findAllByDepartment(department);
     }
 
     public Position update(Long id, Position position) {

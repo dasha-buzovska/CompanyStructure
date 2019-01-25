@@ -1,7 +1,6 @@
 package demoCompany.controller;
 
-import demoCompany.entity.Department;
-import demoCompany.entity.Project;
+import demoCompany.entity.*;
 import demoCompany.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +20,9 @@ public class DepartmentController {
         return departmentService.getById(id);
     }
 
-    @GetMapping("/{id}/projects")
-    public List<Project> getProjects(@PathVariable("id") long id) {
-        return departmentService.getAllProjects(id);
+    @GetMapping("/{id}/positions")
+    public List<Position> getPositions(@PathVariable("id") long id) {
+        return departmentService.getAllPositions(id);
     }
 
     @GetMapping
